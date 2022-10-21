@@ -102,7 +102,8 @@ def is_consecutive(a_list):
     if (type(a_list) != list):
         raise TypeError('Input must be a list')
 
-    return sorted(a_list) == list(range(min(a_list), max(a_list)+1))
+    if (all(isinstance(val, int) for val in a_list)):
+        return sorted(a_list) == list(range(min(a_list), max(a_list)+1))
 # left side is input list sorted
 # right side is a temp list of all integers in input list from min to max
 # if any nonconsecutive values in input list, lists will not be equal --> evaluate to false
